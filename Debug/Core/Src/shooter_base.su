@@ -1,0 +1,3 @@
+../Core/Src/shooter_base.cpp:37:6:void shooter_base()	40	static
+../Core/Src/shooter_base.cpp:109:6:void Reset()	8	static
+../Core/Src/shooter_base.cpp:151:6:void base_limit()	8	static

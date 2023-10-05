@@ -1,0 +1,2 @@
+../Core/Src/mainpp.cpp:24:6:void main_function()	8	static
+../Core/Src/mainpp.cpp:32:6:void stm_setup()	8	static
