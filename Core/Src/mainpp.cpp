@@ -10,6 +10,7 @@
 #include "ztest/ros_port.h"
 #include "baseball_intake.h"
 #include "stm32f4xx_hal.h"
+#include "shooter.h"
 
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
@@ -19,13 +20,19 @@ extern TIM_HandleTypeDef htim5;
 extern TIM_HandleTypeDef htim8;
 extern TIM_HandleTypeDef htim12;
 
-
+uint16_t angle = 90.0;
 
 void main_function(){
 	ros_setup();
 	stm_setup();
+	UART_Send_SetMotorPosition(1, 800, 200);
 	while(1){
+		//__HAL_TIM_SET_COMPARE(&htim4,TIM_CHANNEL_2,600+10*angle);
+		//UART_Send_SetMotorPosition(1, 800, 300); //800 - 2200
 		ros_loop();
+		if(flag == 8){
+			run = 1;
+		}
 	}
 }
 

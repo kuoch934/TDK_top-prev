@@ -28,7 +28,8 @@ Core/Src/shooter_base.o: ../Core/Src/shooter_base.cpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Inc/shooter.h ../Core/Inc/shooter_base.h
+ ../Core/Inc/shooter.h ../Core/Inc/shooter_base.h ../Core/Inc/servo.h \
+ ../Core/Inc/main.h ../Core/Inc/mainpp.h
 ../Core/Inc/shooter_base.h:
 ../Core/Inc/TIM_IT.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -61,3 +62,6 @@ Core/Src/shooter_base.o: ../Core/Src/shooter_base.cpp \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Core/Inc/shooter.h:
 ../Core/Inc/shooter_base.h:
+../Core/Inc/servo.h:
+../Core/Inc/main.h:
+../Core/Inc/mainpp.h:

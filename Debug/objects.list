@@ -6,6 +6,7 @@
 "./Core/Src/mainpp.o"
 "./Core/Src/reset_button.o"
 "./Core/Src/ros_port.o"
+"./Core/Src/servo.o"
 "./Core/Src/shooter.o"
 "./Core/Src/shooter_base.o"
 "./Core/Src/stm32f4xx_hal_msp.o"

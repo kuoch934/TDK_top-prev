@@ -10,6 +10,7 @@
 #include "ros.h"
 #include "geometry_msgs/Point.h"
 #include "std_msgs/Int8.h"
+#include "std_msgs/Int64.h"
 
 #include "shooter.h"
 #include "shooter_base.h"
@@ -23,13 +24,14 @@
 //geometry_msgs::Point angle;
 extern double target_hz, target_ev, target_length;
 int flag;
-std_msgs::Int8 laji,button_reset;
+std_msgs::Int8 laji,pitches;
+std_msgs::Int64 button_reset;
 
 void angle_callback(const geometry_msgs::Point &msg)
 {
-	target_hz = msg.x;
-	target_ev = msg.y;
-	target_length = msg.z;
+	ros_hz = msg.x;
+	ros_ev = msg.y;
+	ros_st = msg.z;
 }
 void laji_callback(const std_msgs::Int8 &msg){
 	laji_cmd = msg.data;
@@ -49,6 +51,7 @@ void ori_callback(const std_msgs::Int8 &msg){
 
 ros::NodeHandle nh;
 ros::Subscriber<geometry_msgs::Point> sub_angle("/cmd_angle", angle_callback);
+ros::Publisher pub_pitches("shooter_ok", &pitches);
 ros::Subscriber<std_msgs::Int8> sub_ori("/cmd_ori", ori_callback);
 ros::Subscriber<std_msgs::Int8> sub_laji("cmd_laji", laji_callback);
 ros::Publisher pub_laji("laji_ok", &laji);
@@ -62,6 +65,7 @@ void ros_setup(void)
 	nh.subscribe(sub_laji);
 	nh.advertise(pub_laji);
 	nh.advertise(pub_reset);
+	nh.advertise(pub_pitches);
 
 }
 void ros_loop(void)
@@ -71,21 +75,22 @@ void ros_loop(void)
 void pub(){
 	laji.data = laji_ok;
 	button_reset.data = reset_condition();
+	pitches.data = return_value;
 	pub_laji.publish(&laji);
 	pub_reset.publish(&button_reset);
+	pub_pitches.publish(&pitches);
 }
 
 /* UART Communication */
-void Error_Handler(void)
-{
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
-  /* USER CODE END Error_Handler_Debug */
-}
+//void Error_Handler(void){
+//  /* USER CODE BEGIN Error_Handler_Debug */
+//  /* User can add his own implementation to report the HAL error return state */
+//  __disable_irq();
+//  while (1)
+//  {
+//  }
+//  /* USER CODE END Error_Handler_Debug */
+//}
 
 static void MX_USART2_UART_Init(void)
 {

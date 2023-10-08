@@ -16,6 +16,7 @@ void angle_callback(const geometry_msgs::Point &msg);
 void laji_callback(const std_msgs::Int8 &msg);
 void ori_callback(const std_msgs::Int8 &msg);
 
+extern int flag;
 
 void pub();
 

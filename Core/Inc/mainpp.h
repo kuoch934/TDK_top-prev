@@ -8,8 +8,12 @@
 #ifndef INC_MAINPP_H_
 #define INC_MAINPP_H_
 
+#include "main.h"
 #include "shooter_base.h"
 #include "TIM_IT.h"
+#include "servo.h"
+
+extern int run;
 
 #ifdef __cplusplus
  extern "C" {

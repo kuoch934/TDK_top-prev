@@ -14,19 +14,28 @@
 //#include "ros_port.h"
 
 int fu,fl,lu,ll;
-double angle_hz = 0.0;
-double angle_ev = 0.0;
+int r = 0;
 int t = 0;
 int x = 0;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 	if(htim->Instance == TIM5){
+//		UART_Send_SetMotorPosition(1, 1010, 200);
+		//software	reset
+		if(r==1){
+		  HAL_NVIC_SystemReset();
+		  r = 0;
+		}
+		//reset sensors
+		hz_origin = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3);
+		ev_origin = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5);
 		//shooter
 		if(reset == 1)	Reset();
 		else{
 			shooter_base();
 			base_limit();
 		}
+		if(return_value < 4)	Script();
 		shooter();
 		//laji car
 		fl = HAL_GPIO_ReadPin(FLIPING_DOWN_LIMIT_PORT, FLIPING_DOWN_LIMIT_PIN);
