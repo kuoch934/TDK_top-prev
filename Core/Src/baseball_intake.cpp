@@ -82,13 +82,13 @@ int lifting_RisingEdge(int current){
 // reset = 1;
 //}
 void laji_Reset(){
-	if(laji_reset != 0){
-	lifting.ENA = lifting_state(0);
-	fliping.ENA = fliping_state(0);
-	}
-	if(lifting.ENA == 1 && fliping.ENA == 1){
-	laji_reset = 0;
-	}
+ if(laji_reset != 0){
+ lifting.ENA = lifting_state(0);
+ fliping.ENA = fliping_state(0);
+ }
+ if(lifting.ENA == 1 && fliping.ENA == 1){
+ laji_reset = 0;
+ }
 }
 
 //if(msg->data == 1){
@@ -100,70 +100,75 @@ void laji_Reset(){
 void laji_control(){
  static int a = 0;
  if(cmd == 1){
-	 laji_ok = 0;
-	 fliping.ENA = fliping_state(1);
-  if(fliping.ENA == 1){
-	 cmd = 0;
-	 laji_ok = 1;
+  laji_ok = 0;
+  fliping.ENA = fliping_state(1);
+  lifting.ENA = lifting_state(0);
+  if(fliping.ENA == 1 && lifting.ENA == 1){
+  cmd = 0;
+  laji_ok = 1;
   }
  }
  else if(cmd == 2){
-	 laji_ok = 0;
-	 if(a%3 == 0){
-		 lifting.ENA = lifting_state(1);
-		 if(lifting.ENA == 1){
-			 a++;
-		 }
-	 }
-	 else if(a%3 == 1){
-		 lifting.ENA = lifting_state(0);
-		 if(lifting.ENA == 1){
-			 a++;
-		 }
-	 }
-	 else if(a%3 == 2){
-		 fliping.ENA = fliping_state(0);
-		 if(fliping.ENA == 1){
-			 a++;
-			 cmd = 0;
-			 laji_ok = 1;
-		 }
-	 }
+  laji_ok = 0;
+  if(a%3 == 0){
+   lifting.ENA = lifting_state(1);
+   if(lifting.ENA == 1){
+    a++;
+   }
+  }
+  else if(a%3 == 1){
+   lifting.ENA = lifting_state(0);
+   if(lifting.ENA == 1){
+    a++;
+   }
+  }
+  else if(a%3 == 2){
+   fliping.ENA = fliping_state(0);
+   if(fliping.ENA == 1){
+    a++;
+    cmd = 0;
+    laji_ok = 1;
+   }
+  }
  }
  else if(cmd == 3){
- 	 laji_ok = 0;
- 	 fliping.ENA = fliping_state(0);
- 	 if(fliping.ENA == 1){
- 		 cmd = 0;
- 	 	 laji_ok = 1;
- 	}
+   laji_ok = 0;
+   fliping.ENA = fliping_state(0);
+   if(fliping.ENA == 1){
+    cmd = 0;
+     laji_ok = 1;
   }
-  else if(cmd == 4){
- 	 laji_ok = 0;
- 	 lifting.ENA = lifting_state(1);
- 	 if(lifting.ENA == 1){
- 		 cmd = 0;
- 		 laji_ok = 1;
- 	}
   }
+ else if(cmd == 4){
+    laji_ok = 0;
+    fliping.ENA = fliping_state(1);
+    if(fliping.ENA == 1){
+     cmd = 0;
+      laji_ok = 1;
+   }
+   }
   else if(cmd == 5){
- 	 laji_ok = 0;
- 	 lifting.ENA = lifting_state(0);
- 	 if(lifting.ENA == 1){
- 		 cmd = 0;
- 		 laji_ok = 1;
- 	 	 }
-  	 }
+   laji_ok = 0;
+   lifting.ENA = lifting_state(1);
+   if(lifting.ENA == 1){
+    cmd = 0;
+    laji_ok = 1;
+  }
+  }
+  else if(cmd == 6){
+   laji_ok = 0;
+   lifting.ENA = lifting_state(0);
+   if(lifting.ENA == 1){
+    cmd = 0;
+    laji_ok = 1;
+     }
+    }
   else if(cmd == -1){
-	  laji_stop();
+   laji_stop();
   }
 }
 
 void laji_stop(){
-	fliping.move(0,0, FLIPING_INA_PORT,FLIPING_INA_PIN,FLIPING_INB_PORT,FLIPING_INB_PIN);
-	lifting.move(0,0, LIFTING_INA_PORT,LIFTING_INA_PIN,LIFTING_INB_PORT,LIFTING_INB_PIN);
+ fliping.move(0,0, FLIPING_INA_PORT,FLIPING_INA_PIN,FLIPING_INB_PORT,FLIPING_INB_PIN);
+ lifting.move(0,0, LIFTING_INA_PORT,LIFTING_INA_PIN,LIFTING_INB_PORT,LIFTING_INB_PIN);
 }
-
-
-
-

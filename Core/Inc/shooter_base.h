@@ -12,6 +12,7 @@
 
 #include "TIM_IT.h"
 #include "shooter.h"
+#include "ztest/ros_port.h"
 #include <math.h>
 extern int flag;
 
@@ -91,6 +92,11 @@ extern double ros_st;
 extern double ros_hz;
 extern double ros_ev;
 
+extern double mission;
+
 void Script();
+
+#define go 90
+#define stop 0
 
 #endif /* INC_SHOOTER_BASE_H_ */

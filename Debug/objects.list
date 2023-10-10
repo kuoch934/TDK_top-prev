@@ -1,6 +1,7 @@
 "./Core/Inc/duration.o"
 "./Core/Inc/time.o"
 "./Core/Src/TIM_IT.o"
+"./Core/Src/badminton.o"
 "./Core/Src/baseball_intake.o"
 "./Core/Src/main.o"
 "./Core/Src/mainpp.o"

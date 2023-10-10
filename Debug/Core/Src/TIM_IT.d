@@ -28,8 +28,6 @@ Core/Src/TIM_IT.o: ../Core/Src/TIM_IT.cpp ../Core/Inc/TIM_IT.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/shooter.h ../Core/Inc/TIM_IT.h ../Core/Inc/shooter_base.h \
- ../Core/Inc/servo.h ../Core/Inc/main.h ../Core/Inc/mainpp.h \
- ../Core/Inc/baseball_intake.h ../Core/Inc/shooter_base.h \
  ../Core/Inc/ztest/ros_port.h ../Core/Inc/ros.h \
  ../Core/Inc/ros/node_handle.h ../Core/Inc/std_msgs/Time.h \
  ../Core/Inc/ros/msg.h ../Core/Inc/ros/time.h ../Core/Inc/ros/duration.h \
@@ -38,7 +36,10 @@ Core/Src/TIM_IT.o: ../Core/Src/TIM_IT.cpp ../Core/Inc/TIM_IT.h \
  ../Core/Inc/ros/node_handle.h ../Core/Inc/ros/subscriber.h \
  ../Core/Inc/ros/service_server.h ../Core/Inc/ros/service_client.h \
  ../Core/Inc/STM32Hardware.h ../Core/Inc/geometry_msgs/Point.h \
- ../Core/Inc/std_msgs/Int8.h
+ ../Core/Inc/std_msgs/Int8.h ../Core/Inc/geometry_msgs/Twist.h \
+ ../Core/Inc/geometry_msgs/Vector3.h ../Core/Inc/servo.h \
+ ../Core/Inc/main.h ../Core/Inc/mainpp.h ../Core/Inc/baseball_intake.h \
+ ../Core/Inc/shooter_base.h ../Core/Inc/ztest/ros_port.h
 ../Core/Inc/TIM_IT.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -71,11 +72,6 @@ Core/Src/TIM_IT.o: ../Core/Src/TIM_IT.cpp ../Core/Inc/TIM_IT.h \
 ../Core/Inc/shooter.h:
 ../Core/Inc/TIM_IT.h:
 ../Core/Inc/shooter_base.h:
-../Core/Inc/servo.h:
-../Core/Inc/main.h:
-../Core/Inc/mainpp.h:
-../Core/Inc/baseball_intake.h:
-../Core/Inc/shooter_base.h:
 ../Core/Inc/ztest/ros_port.h:
 ../Core/Inc/ros.h:
 ../Core/Inc/ros/node_handle.h:
@@ -94,3 +90,11 @@ Core/Src/TIM_IT.o: ../Core/Src/TIM_IT.cpp ../Core/Inc/TIM_IT.h \
 ../Core/Inc/STM32Hardware.h:
 ../Core/Inc/geometry_msgs/Point.h:
 ../Core/Inc/std_msgs/Int8.h:
+../Core/Inc/geometry_msgs/Twist.h:
+../Core/Inc/geometry_msgs/Vector3.h:
+../Core/Inc/servo.h:
+../Core/Inc/main.h:
+../Core/Inc/mainpp.h:
+../Core/Inc/baseball_intake.h:
+../Core/Inc/shooter_base.h:
+../Core/Inc/ztest/ros_port.h:

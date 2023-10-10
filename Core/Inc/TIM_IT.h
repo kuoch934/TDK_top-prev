@@ -13,6 +13,7 @@
 #include "stm32f4xx_hal.h"
 #include "shooter.h"
 #include "shooter_base.h"
+#include "servo.h"
 
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
@@ -21,8 +22,6 @@ extern TIM_HandleTypeDef htim4;
 extern TIM_HandleTypeDef htim5;
 extern TIM_HandleTypeDef htim8;
 extern TIM_HandleTypeDef htim12;
-
-extern int r;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 

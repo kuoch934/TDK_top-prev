@@ -14,6 +14,7 @@
 #include "servo.h"
 
 extern int run;
+extern int r;
 
 #ifdef __cplusplus
  extern "C" {

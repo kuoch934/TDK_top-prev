@@ -16,8 +16,8 @@
 #include <math.h>
 
 #define radius 10.0 //(mm)
-#define loaded 0
-#define reload	90
+#define loaded 80
+#define reload	170
 #define fire 1010
 #define hook 800
 

@@ -1,2 +1,0 @@
-../Core/Src/servo.cpp:12:6:void UART_Send(uint8_t)	24	static
-../Core/Src/servo.cpp:19:6:void UART_Send_SetMotorPosition(uint16_t, uint16_t, uint16_t)	16	static

@@ -36,7 +36,8 @@ Core/Src/baseball_intake.o: ../Core/Src/baseball_intake.cpp \
  ../Core/Inc/ros/node_handle.h ../Core/Inc/ros/subscriber.h \
  ../Core/Inc/ros/service_server.h ../Core/Inc/ros/service_client.h \
  ../Core/Inc/STM32Hardware.h ../Core/Inc/geometry_msgs/Point.h \
- ../Core/Inc/std_msgs/Int8.h
+ ../Core/Inc/std_msgs/Int8.h ../Core/Inc/geometry_msgs/Twist.h \
+ ../Core/Inc/geometry_msgs/Vector3.h
 ../Core/Inc/baseball_intake.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -84,3 +85,5 @@ Core/Src/baseball_intake.o: ../Core/Src/baseball_intake.cpp \
 ../Core/Inc/STM32Hardware.h:
 ../Core/Inc/geometry_msgs/Point.h:
 ../Core/Inc/std_msgs/Int8.h:
+../Core/Inc/geometry_msgs/Twist.h:
+../Core/Inc/geometry_msgs/Vector3.h:

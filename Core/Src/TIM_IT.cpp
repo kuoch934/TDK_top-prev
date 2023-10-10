@@ -13,29 +13,45 @@
 #include "ztest/ros_port.h"
 //#include "ros_port.h"
 
+extern int seat_mode;
+
 int fu,fl,lu,ll;
-int r = 0;
 int t = 0;
 int x = 0;
+int debounce_ev = 0;
+int buttoned_ev = 0;
+int button_ev = 0;
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 	if(htim->Instance == TIM5){
-//		UART_Send_SetMotorPosition(1, 1010, 200);
-		//software	reset
-		if(r==1){
-		  HAL_NVIC_SystemReset();
-		  r = 0;
-		}
 		//reset sensors
-		hz_origin = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3);
-		ev_origin = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5);
+		debounce_ev++;
+//		hz_origin = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3);
+		button_ev = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5);
+
+		if(buttoned_ev != button_ev)	debounce_ev = 0;
+		buttoned_ev = button_ev;
+
+		if(debounce_ev > 500)	ev_origin = button_ev;
+
+		//ball seat
+		switch(seat_mode){
+			case 1: //loaded
+				__HAL_TIM_SET_COMPARE(&htim4,TIM_CHANNEL_2,600+10*loaded);
+				break;
+			case 2:	//reload
+				__HAL_TIM_SET_COMPARE(&htim4,TIM_CHANNEL_2,600+10*reload);
+				break;
+		}
+
 		//shooter
 		if(reset == 1)	Reset();
 		else{
 			shooter_base();
 			base_limit();
 		}
-		if(return_value < 4)	Script();
+		Script();
 		shooter();
 		//laji car
 		fl = HAL_GPIO_ReadPin(FLIPING_DOWN_LIMIT_PORT, FLIPING_DOWN_LIMIT_PIN);

@@ -11,12 +11,16 @@
 #include "ros.h"
 #include "geometry_msgs/Point.h"
 #include "std_msgs/Int8.h"
+#include "geometry_msgs/Twist.h"
 
+extern int dis;
+
+void speed_callback(const geometry_msgs::Twist &msg);
 void angle_callback(const geometry_msgs::Point &msg);
 void laji_callback(const std_msgs::Int8 &msg);
 void ori_callback(const std_msgs::Int8 &msg);
+void badminton_callback(const std_msgs::Int8 &msg);
 
-extern int flag;
 
 void pub();
 
